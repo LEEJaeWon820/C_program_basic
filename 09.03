@@ -4,36 +4,37 @@
 #include <stdio.h>
 
 int main(void) {
-    int temp;
-    int A[100] = { 0, };
-    int n = 0;
-    FILE* fp = fopen("data.txt", "r");
+    int temp;  
+    int A[100] = { 0, }; 
+    int n = 0; 
+    FILE* fp = fopen("data.txt", "r");  
 
-
+   
     if (fp == NULL) {
         printf("파일을 열 수 없습니다.\n");
-        return 1; 
+        return 1;
     }
 
-    do {
-        if (fscanf(fp, "%d", &temp) == 1) {
-            A[n] = temp;
-            n++;
-        }
-        else break;
-    } while (A[n] != EOF);
+    while (fscanf(fp, "%d", &temp) == 1)
+    {
+        A[n] = temp;
+        n++;  
+    }
 
-    fclose(fp);
+    fclose(fp); 
 
     printf("파일의 개수: %d\n\n", n);
     printf("파일에서 읽은 값들:\n\n");
-    for (int i = 0; i < n; i++) {
+
+    for (int i = 0; i < n; i++)
+    {
         printf("%d\n", A[i]);
     }
     printf("\n");
 
     return 0;
 }
+
 
 ------------------------ 최댓값 최솟값 --------------------------
 
@@ -51,17 +52,15 @@ int main(void) {
 
     if (fp == NULL) {
         printf("파일을 열 수 없습니다.\n");
-        return 1; 
+        return 1;
     }
 
-    do {
-        if (fscanf(fp, "%d", &temp) == 1) {
-            A[n] = temp;
-            n++;
-        }
-        else break;
-    } while (A[n] != EOF);
-    
+    while (fscanf(fp, "%d", &temp) == 1)
+    {
+        A[n] = temp;
+        n++;
+    }
+
 
     for (int i = 0; i < 9; ++i)
     {
@@ -88,3 +87,4 @@ int main(void) {
     printf("최솟값: %d\n", min);
     return 0;
 }
+
